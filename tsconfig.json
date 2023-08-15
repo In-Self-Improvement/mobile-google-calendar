@@ -1,12 +1,18 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@components": "./src/components",
-      "@elements": "./src/elements",
-      "@hooks": "./src/hooks"
-    }
+      "@components/*": ["./src/components/*"],
+      "@elements/*": ["./src/elements/*"],
+      "@hooks/*": ["./src/hooks/*"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "jsx": "react-native"
   }
 }

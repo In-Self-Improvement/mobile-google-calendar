@@ -7,13 +7,21 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/react-native": "^12.2.2",
+    "@vitejs/plugin-react": "^4.0.4",
     "babel-plugin-module-resolver": "^5.0.0",
+    "jsdom": "^22.1.0",
     "moment": "^2.29.4",
     "react": "18.2.0",
-    "react-native": "0.72.3"
+    "react-native": "0.64.2",
+    "vitest": "^0.34.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -34,5 +42,6 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "type": "module"
 }

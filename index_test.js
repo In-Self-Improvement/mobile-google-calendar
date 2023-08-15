@@ -106,63 +106,6 @@ function handleSignoutClick() {
   }
 }
 
-// async function listUpcomingEvents(showHiddenInvitations = false) {
-//   let response;
-//   try {
-//     const now = new Date();
-//     const oneWeekAgo = new Date();
-//     oneWeekAgo.setDate(now.getDate() - 7);
-//     const request = {
-//       calendarId:
-//         "6fc2dab0bb8f3d17da94604be495d28b333a5a046098dcc1681940f0723ae33f@group.calendar.google.com",
-//       timeMin: oneWeekAgo.toISOString(),
-//       timeMax: now.toISOString(),
-//       showDeleted: false,
-//       singleEvents: true,
-//       maxResults: 10,
-//       orderBy: "startTime",
-//       // showHiddenInvitations: showHiddenInvitations,
-//     };
-//     response = await gapi.client.calendar.events.list(request);
-//   } catch (err) {
-//     document.getElementById("content").innerText = err.message;
-//     return;
-//   }
-
-//   const events = response.result.items;
-
-//   if (!events || events.length == 0) {
-//     document.getElementById("content").innerText = "No events found.";
-//     return;
-//   }
-
-//   const groupedEvents = events.reduce((grouped, event) => {
-//     const eventName = event.summary || "No title";
-//     if (!grouped[eventName]) {
-//       grouped[eventName] = [];
-//     }
-//     const start = moment(event.start.dateTime || event.start.date);
-//     const end = moment(event.end.dateTime || event.end.date);
-//     const duration = moment.duration(end.diff(start)).asHours();
-//     grouped[eventName].push(
-//       `${eventName} (Start: ${start.format(
-//         "YYYY-MM-DD HH:mm:ss"
-//       )}, End: ${end.format(
-//         "YYYY-MM-DD HH:mm:ss"
-//       )}, Duration: ${duration.toFixed(2)} hours)`
-//     );
-//     return grouped;
-//   }, {});
-
-//   // Flatten to string to display
-//   const output = Object.keys(groupedEvents).reduce(
-//     (str, eventName) =>
-//       `${str}${eventName}:\n${groupedEvents[eventName].join("\n")}\n`,
-//     "Events:\n"
-//   );
-//   document.getElementById("content").innerText = output;
-// }
-
 async function listUpcomingEvents(showHiddenInvitations = false) {
   try {
     const allCalendarIdsResponse =
