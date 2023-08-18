@@ -41,6 +41,3 @@ describe('useTimer', () => {
     expect(result.current.time).toBe('00:00:59');
   });
 });
-function waitForNextUpdate() {
-  throw new Error('Function not implemented.');
-}
