@@ -40,4 +40,17 @@ describe('useTimer', () => {
 
     expect(result.current.time).toBe('00:00:59');
   });
+
+  test('should pause the timer', () => {
+    const {result} = renderHook(() => useTimer(60));
+
+    act(() => {
+      result.current.start();
+      jest.advanceTimersByTime(1000); // 1초 경과
+      result.current.pause();
+      jest.advanceTimersByTime(1000); // 1초 경과
+    });
+
+    expect(result.current.time).toBe('00:00:59');
+  });
 });
