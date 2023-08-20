@@ -34,6 +34,10 @@ describe('useTimer', () => {
     const {result} = renderHook(() => useTimer(60));
 
     act(() => {
+      result.current.start();
+      jest.advanceTimersByTime(1000); // 1초 경과
+      result.current.pause();
+      jest.advanceTimersByTime(1000); // 1초 경과
       result.current.restart();
       jest.advanceTimersByTime(1000); // 1초 경과
     });
